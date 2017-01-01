@@ -8,13 +8,8 @@ import (
 func main() {
 	log.SetFlags(log.Lmicroseconds)
 	log.Println("Starting server on port 3000...")
-	err := http.ListenAndServe("localhost:3000", http.HandlerFunc(staticServer))
+	err := http.ListenAndServe(":3000", http.FileServer(http.Dir("static")))
 	check(err)
-}
-
-func staticServer(w http.ResponseWriter, r *http.Request) {
-	log.Println("Got request for", r.URL)
-	http.ServeFile(w, r, "static")
 }
 
 func check(err error) {
