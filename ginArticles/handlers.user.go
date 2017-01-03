@@ -32,3 +32,15 @@ func register(c *gin.Context) {
 		})
 	}
 }
+
+func showLoginPage(c *gin.Context) {
+
+}
+
+func performLogin(c *gin.Context) {
+
+}
+
+func logout(c *gin.Context) {
+
+}
