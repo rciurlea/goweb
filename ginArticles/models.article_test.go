@@ -18,3 +18,14 @@ func TestGetAllArticles(t *testing.T) {
 		}
 	}
 }
+
+func TestCreateNewArticle(t *testing.T) {
+	originalLength := len(getAllArticles())
+	a, err := createNewArticle("test title", "test content")
+	allArticles := getAllArticles()
+	newLength := len(allArticles)
+	if err != nil || newLength != originalLength+1 ||
+		a.Title != "test title" || a.Content != "test content" {
+		t.Fail()
+	}
+}
